@@ -23,10 +23,7 @@ class HTMLNode:
         return attributes_string
     
     def __repr__(self):
-        print(f"tag = {self.tag}")
-        print(f"value = {self.value}")
-        print(f"children = {self.children}")
-        print(f"props = {self.props_to_html()}")
+        return f"HTMLNode({self.tag}, {self.value}, children: {self.children}, {self.props})"
 
     def get_tag(self):
         return self.tag
