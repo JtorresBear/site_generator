@@ -27,3 +27,18 @@ class TextNode:
     
     def __repr__(self):
         return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
+
+    def text_node_to_html_node(TextNode):
+        match TextNode.text_type:
+            case TextType.PLAIN_TEXT:
+                return LeafNode(None,TextNode.text,None)
+            case TextType.BOLD_TEXT:
+                return LeafNode("b",TextNode.text,None)
+            case TextType.ITALIC_TEXT:
+                return LeafNode("i",TextNode.text,None)
+            case TextType.CODE_TEXT:
+                return LeafNode("code",TextNode.text,None)
+            case TextType.LINKS:
+                return LeafNode("a",TextNode.text,{"href":TextNode.url})
+            case TextType.IMAGE:
+                rturn LeafNode("img",None,)
