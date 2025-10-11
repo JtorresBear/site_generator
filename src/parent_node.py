@@ -12,4 +12,8 @@ class Parent_Node(HTMLNode):
         
         if self.children is None:
             raise ValueError("NO CHILDREN?!")
-        return 
+        return_string = f"<{self.tag}>"    
+        for child in self.children:
+            return_string += child.to_html()
+        return_string += f"</{self.tag}>"
+        return return_string 
