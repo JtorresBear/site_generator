@@ -1,4 +1,5 @@
 from enum import Enum
+from leaf_node import LeafNode
 
 class TextType(Enum):
     PLAIN_TEXT = "plain"
@@ -41,4 +42,4 @@ class TextNode:
             case TextType.LINKS:
                 return LeafNode("a",TextNode.text,{"href":TextNode.url})
             case TextType.IMAGE:
-                rturn LeafNode("img",None,)
+                return LeafNode("img",None,)
