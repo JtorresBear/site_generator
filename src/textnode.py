@@ -2,10 +2,10 @@ from enum import Enum
 from leaf_node import LeafNode
 
 class TextType(Enum):
-    PLAIN_TEXT = "plain"
-    BOLD_TEXT = "bold"
-    ITALIC_TEXT = "italic"
-    CODE_TEXT = "code"
+    TEXT = "text"
+    BOLD = "bold"
+    ITALIC = "italic"
+    CODE = "code"
     LINK = "links"
     IMAGE = "images"
 
@@ -31,13 +31,13 @@ class TextNode:
 
     def text_node_to_html_node(text_node):
         match text_node.text_type:
-            case TextType.PLAIN_TEXT:
+            case TextType.TEXT:
                 return LeafNode(None,text_node.text,None)
-            case TextType.BOLD_TEXT:
+            case TextType.BOLD:
                 return LeafNode("b",text_node.text,None)
-            case TextType.ITALIC_TEXT:
+            case TextType.ITALIC:
                 return LeafNode("i",text_node.text,None)
-            case TextType.CODE_TEXT:
+            case TextType.CODE:
                 return LeafNode("code",text_node.text,None)
             case TextType.LINK:
                 return LeafNode("a",text_node.text,{"href":text_node.url})
