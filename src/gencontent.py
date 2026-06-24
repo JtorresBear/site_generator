@@ -2,6 +2,7 @@ import blocks_helper as BH
 import markdown_to_textnodes_to_html as M_to_html
 import htmlnode
 import os
+from pathlib import Path
 
 def extract_title(markdown):
     blocks = BH.markdown_to_blocks(markdown)
@@ -45,7 +46,7 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
         content_path = os.path.join(dir_path_content,item)
         if os.path.isfile(content_path):
             dest_path = os.path.join(dest_dir_path,item)
-            dest_path = dest_path.replace(".md", ".html")
+            dest_path = Path(dest_path).with_suffix(".html")
             generate_page(content_path,template_path,dest_path)
         else:
             dest_path = os.path.join(dest_dir_path,item)
