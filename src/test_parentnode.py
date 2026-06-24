@@ -25,7 +25,7 @@ class TestParentNode(unittest.TestCase):
       parent_node.to_html()
 
   def test_to_html_no_tag(self):
-
+    print("running")
     with self.assertRaises(ValueError):
       child_node = LeafNode("span","child")
       parent_node = ParentNode(None,[child_node])

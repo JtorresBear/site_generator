@@ -3,13 +3,6 @@ from textnode import TextNode
 from enum import Enum
 import re 
 
-class BlockType(Enum):
-    PARAGRAPH = "paragraph"
-    HEADING = "heading"
-    CODE = "code"
-    QUOTE =  "quote"
-    UNORDERED_LIST = "unordered list"
-    ORDERED_LIST = "ordered list "
 
 
 def split_nodes_delimiter(old_nodes,delimiter, text_type):
@@ -102,5 +95,5 @@ def text_to_textnodes(text):
     return nodes_list
 
 """
-take the markdown text, turn them into text nodes, turn the text nodes into html nodes
+take the markdown text, turn them to blocks, turn them into text nodes, turn the text nodes into html nodes
 """
