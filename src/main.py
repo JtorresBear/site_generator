@@ -7,12 +7,10 @@ import sys
 
 
 def main():
-    nsrc = sys.argv[0]
-    print(nsrc)
-    copy.clean_dir("public")
-    copy.copy_static("static","public")
-    #gc.generate_page("content/index.md","template.html","public/index.html")
-    #gc.generate_pages_recursive("content","template.html","public")
+    basepath = sys.argv[1] if len(sys.argv) > 1 else "/"
+    copy.clean_dir("docs")
+    copy.copy_static("static","docs")
+    gc.generate_pages_recursive("content","template.html","docs",basepath)
 
 
 main()
